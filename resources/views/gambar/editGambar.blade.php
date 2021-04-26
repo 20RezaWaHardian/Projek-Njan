@@ -19,7 +19,8 @@
         </div>
         <div class="form-group">
             <label for="image">Input Gambar</label>
-            <input type="file" class="custom-file-input" name="image" id="image" >
+            <input type="file" class="form-control" name="image" id="image">
+            <input type="hidden" id='hidden_image' name="hidden_image" value='{{$gambar->image}}'>
         </div>
 
         <div class="form-group">

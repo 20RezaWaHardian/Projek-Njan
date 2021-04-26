@@ -23,7 +23,7 @@
                     <td>{{$item->keterangan}}</td>
                     <td><img src="{{ asset('uploads/gambar/' . $item->image) }}" width="100px" heigth="100px" alt="image"></td>
                     <td>
-                        <a href="#" data-id="{{$item->id_gambar}}" class="btn btn-warning btn-edit"><i class="lnr lnr-pencil"></i></a>
+                        <!-- <a href="#" data-id="{{$item->id_gambar}}" class="btn btn-warning btn-edit"><i class="lnr lnr-pencil"></i></a> -->
                         <a href="/gambar/hapus/{{$item->id_gambar}}" Style="color:white; text-decoration:none" class="btn btn-danger" ><i class="lnr lnr-trash"></i></a>
                     </td>
                 </tr>

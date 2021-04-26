@@ -47,27 +47,34 @@ class GambarController extends Controller
         return redirect('/kelolagambar'); 
     }
 
-    public function edit($id)
-    {
-        $gambar=Gambar::find($id);
-        return view('gambar.editGambar', compact('gambar'));
-    }
+    // public function edit($id)
+    // {
+    //     $gambar=Gambar::find($id);
+    //     return view('gambar.editGambar', compact('gambar'));
+    // }
 
-    public function update(Request $request, $id)
-    {
-        $ubah=Gambar::findorfail($id);
-        $awal=$ubah->image;
-
-        $gambar = [
-            'keterangan'=>$request['keterangan'],
-            'image'=>$awal,
-        ];
-        $request->image->move(public_path().'uploads/gambar/', $awal);
-        $ubah->update($gambar);
+    // public function update(Request $request, Gambar $gambar)
+    // {
+    //     $gambar->keterangan = $request->keterangan;
         
-        return $gambar;
+    //     if($request->hasfile('image')){
+    //         $file = $request->file('image');
+    //         $extension = $file->getClientOriginalExtension();
+    //         $filename = time() . '.' . $extension;
+    //         $file->move('uploads/gambar/', $filename);
+    //         $gambar->image = $filename;
+    //     }else{
+    //         return $request;
+    //         $gambar->image = '';
+    //     }
 
-    }
+    //     // return $gambar;
+    //     $gambar->update();
+
+    //     // $data=Gambar::find($id);
+    //     // $data->update($gambar);
+
+    // }
 
     public function destroy($id)
     {
