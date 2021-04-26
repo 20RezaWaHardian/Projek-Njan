@@ -25,7 +25,7 @@
                 <tr>
                     <th>No</th>
                     <th>Username</th>
-                    <th>Email</th>
+                    <!-- <th>Email</th> -->
                     <th>Password</th>
                     <th>Status</th>
                     <th>action</th>
@@ -36,7 +36,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{ $item->username}}</td>
-                    <td>{{$item->email}}</td>
+                    <!-- <td>{{$item->email}}</td> -->
                     <td>{{$item->password}}</td>
                     @if($item->rule==0)
                     <td>Super Admin</td>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
 
                             <div class="col-md-6">
@@ -111,13 +111,13 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password_update" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password_update" type="text" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -131,15 +131,8 @@
                              <label for="password" class="col-md-4 col-form-label text-md-right">Level User</label>
                             <div class="col-md-6">
                                 <select name="rule" id="rule_update">
-                                    @foreach($user as $data)
-                                        @if($data->rule == 0)
                                         <option value="0"> Super admin</option>
                                         <option value="1">  Admin</option>
-                                        @else
-                                        <option value="1"> Admin</option>
-                                        <option value="0"> Super Admin</option>
-                                        @endif
-                                    @endforeach
                                 </select>
                             </div>
                         </div>       

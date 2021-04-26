@@ -6,7 +6,7 @@
                     <option value="jasa raharja">Jasa Raharja</option>
                     <option value="event">Event</option>
                     <option value="peta">Peta</option>
-                @elseif ($gambar->kegiatan == 'event')
+                @elseif ($gambar->keterangan == 'event')
                     <option value="event">Event</option>
                     <option value="jasa raharja">Jasa Raharja</option>
                     <option value="peta">Peta</option>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="image">Input Gambar</label>
-            <input type="file" class="custom-file-input" name="image" id="image" value="{{$gambar->image}}">
+            <input type="file" class="custom-file-input" name="image" id="image" >
         </div>
 
         <div class="form-group">

@@ -53,19 +53,21 @@ class GambarController extends Controller
         return view('gambar.editGambar', compact('gambar'));
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $ubah=Gambar::find($id);
-    //     $awal=$ubah->image;
+    public function update(Request $request, $id)
+    {
+        $ubah=Gambar::findorfail($id);
+        $awal=$ubah->image;
 
-    //     $gambar = [
-    //         'keterangan'=>$request['keterangan'],
-    //         'image'=>$awal,
-    //     ];
-    //     $request->image->move(public_path().'uploads/gambar/', $awal);
-    //     $ubah->update($gambar);
-    //     dd($ubah);
-    // }
+        $gambar = [
+            'keterangan'=>$request['keterangan'],
+            'image'=>$awal,
+        ];
+        $request->image->move(public_path().'uploads/gambar/', $awal);
+        $ubah->update($gambar);
+        
+        return $gambar;
+
+    }
 
     public function destroy($id)
     {

@@ -28,7 +28,7 @@ class UserController extends Controller
     public function dataTambah(Request $r){
         User::insert([
             'username' => $r->username,
-            'email' =>  $r->email,
+            // 'email' =>  $r->email,
             'password' => bcrypt($r->password),
             'rule'=>$r->rule,
         ]);
