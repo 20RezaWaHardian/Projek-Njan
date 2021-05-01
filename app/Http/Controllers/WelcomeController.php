@@ -22,15 +22,50 @@ class WelcomeController extends Controller
             // dd($data);
             
     }
-    $dataKorban=[];
-    $dataLuka=[];
-    $jumlah_mgl=[];
-            $korban_mg=Korban::where('kasus','meninggal')->sum('jumlah');
-            $korban_lk=Korban::where('kasus','luka-luka')->sum('jumlah');
+    // $dataKorban=[];
+    // $dataLuka=[];
+    // $jumlah_mgl=[];
+    $tahun_korban=date('Y');
+                
+    $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
+    $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+
             
     $gambar = Gambar::where('keterangan','event')->first('image');
     $gambar2 = Gambar::where('keterangan','jasa raharja')->first('image');
+    $gambar3 = Gambar::where('keterangan','peta')->first('image');
 
-    return view('welcome',compact('korban_mg','korban_lk','gambar','gambar2'));
+    return view('welcome',compact('korban_mg','korban_lk','gambar','gambar2','gambar3'));
+    // return view('welcome');
+    }
+
+    public function swShow()
+    {
+        $sw = SW::where('status','baru')->first();
+        return view('sw.showSW', compact('sw'));
+    }
+
+    public function iwShow()
+    {
+        $iw = IW::where('status','baru')->first();
+        return view('iw.showIW', compact('iw'));
+    }
+
+    public function klaimShow()
+    {
+        $klaim = Klaim::where('status','baru')->first();
+        return view('klaim.showKlaim', compact('klaim'));
+    }
+    
+    public function uangShow()
+    {
+
+        $uang = Keuangan::where('status','baru')->first();
+        $tahun_korban=date('Y');
+                
+                $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
+                $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+
+        return view('keuangan.showUang', compact('uang','korban_mg','korban_lk'));
     }
 }

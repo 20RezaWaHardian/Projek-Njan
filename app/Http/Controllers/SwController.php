@@ -81,9 +81,13 @@ class SwController extends Controller
     
     public function uangShow()
     {
+
         $uang = Keuangan::where('status','baru')->first();
-        $korban_mg=Korban::where('kasus','meninggal')->sum('jumlah');
-        $korban_lk=Korban::where('kasus','luka-luka')->sum('jumlah');
+        $tahun_korban=date('Y');
+                
+                $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
+                $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+
         return view('keuangan.showUang', compact('uang','korban_mg','korban_lk'));
     }
 
@@ -91,7 +95,8 @@ class SwController extends Controller
     {
         Korban::insert([
             'kasus' =>$request->kasus,
-            'jumlah' =>$request->jumlah
+            'jumlah' =>$request->jumlah,
+            'created_at'=>now(),
         ]);
     }
 

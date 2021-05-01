@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'WelcomeController@index');
+Route::get('/show/sw/welcome', 'WelcomeController@swShow');
+Route::get('/show/iw/welcome', 'WelcomeController@iwShow');
+Route::get('/show/klaim/welcome', 'WelcomeController@klaimShow');
+Route::get('/show/uang/welcome', 'WelcomeController@uangShow');
 
 Route::get('/user', 'UserController@index')->name('user');
 Route::get('/user/tambah', 'UserController@tambah');
@@ -71,6 +75,6 @@ Route::get('/gambar','GambarController@index');
 Route::get('/kelolagambar','GambarController@kelolaIndex');
 Route::get('/gambar/{id_gambar}/edit', 'GambarController@edit');
 Route::post('/addGambar','GambarController@store')->name('addGambar');
-Route::patch('/gambar/{id_gambar}', 'GambarController@update');
+Route::PATCH('/gambar', 'GambarController@update')->name('updateGambar');
 Route::get('/gambar/hapus/{id_gambar}', 'GambarController@destroy');
 

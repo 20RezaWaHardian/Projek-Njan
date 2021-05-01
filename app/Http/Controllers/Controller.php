@@ -23,27 +23,29 @@ class Controller extends BaseController
                 $iw=IW::where('status','baru')->first();
                 $klaim=Klaim::where('status','=','baru')->first();
                 $keuangan=Keuangan::where('status','=','baru')->first();
+                
                      
                     if($sw){
-                        $data['sw']=$sw->sdBulan_Ini;
+                        $data['sw']='Rp.'.number_format($sw->sdBulan_Ini,0,"",".");
                     }else{
                         $data['sw']=0;
                     }
                     if($iw){
-                    $data['iw']=$iw->sdBulan_Ini;
+                    $data['iw']='Rp.'.number_format($iw->sdBulan_Ini,0,"",".");
                     }else{
                         $data['iw']=0;
                     }
                     if($klaim){
-                        $data['klaim']=$klaim->jp_sdbln;
+                        $data['klaim']='Rp.'.number_format($klaim->jp_sdbln,0,"",".");
                     }else{
                         $data['klaim']=0;
                     }
                     if($keuangan){
-                        $data['keuangan']=$keuangan->total_biaya_sdbln;
+                        $data['keuangan']='Rp.'.number_format($keuangan->total_biaya_sdbln,0,"",".");
                     }else{
                         $data['keuangan']=0;
                     }
+                    
                     $data['data_grafik']=[];
                     $tahun=$r->tahun;
                     for($i=1; $i<=12; $i++){
@@ -62,7 +64,7 @@ class Controller extends BaseController
                         $iw=IW::where('created_at','like',$bln."%")->sum('sdBulan_Ini');
                         $klaim=Klaim::where('created_at','like',$bln."%")->sum('jp_sdbln');
                         $keuangan=Keuangan::where('created_at','like',$bln."%")->sum('total_biaya_sdbln');
-                        $data['data_grafik']['data_sw'][]=(float)  $sw;
+                        $data['data_grafik']['data_sw'][]=(float) $sw;
                         $data['data_grafik']['data_iw'][]=(float)  $iw;
                         $data['data_grafik']['data_klaim'][]=(float)  $klaim;
                         $data['data_grafik']['data_keuangan'][]=(float)  $keuangan;

@@ -37,7 +37,12 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::findOrFail($request->id);
-        $user->update($request->all());
+        $user->update([
+            'username' => $request->username,
+            // 'email' =>  $r->email,
+            'password' => bcrypt($request->password),
+            'rule'=>$request->rule,
+        ]);
 
         // dd($user);
         return redirect()->back()->with(['success' => 'Data Berhasil Update']);

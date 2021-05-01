@@ -101,13 +101,13 @@
                                           <!-- deklarasi carousel -->
                                           <div class="carousel-inner" role="listbox">
                                             <div class="item active">
-                                              <img src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                              <img style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
                                             </div>
                                             <div class="item">
-                                              <img src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                              <img style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
                                             </div>
                                             <div class="item">
-                                              <img src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                              <img style="width: 100%; height: 200px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
                                             </div>
                                           </div>
                                     
@@ -131,7 +131,7 @@
     </div>
 </div>
 
-<!-- modal-edit  -->
+<!-- modal-show  -->
 <div class="modal fade modal-show" id="modal-show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -206,10 +206,10 @@
             }
           },
           title: {
-            text: 'Peminat Prodi '
+            text: 'Grafik Keuangan '
           },
           subtitle: {
-            text: 'Data dihitung bersumber dari database Sistem Penerimaan Mahasiswa Baru'
+            text: 'Jasa Raharja'
           },
           xAxis: {
             categories:  result.data_grafik.label_bulan,
@@ -220,7 +220,7 @@
             min: 0,
             allowDecimals:false,
             title: {
-              text: 'Jumlah Peminat'
+              text: 'Jumlah S/D Bulan Ini'
             }
           },
           tooltip: {

@@ -78,7 +78,7 @@
 						<!-- @else
 						@endif -->
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="{{Request::is('sw','iw','klaim',)? 'active' : ''}}"><i class="fa fa-database"></i> <span>Info Data</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="{{Request::is('sw','iw','klaim',)? 'active' : ''}}"><i class="fa fa-database"></i> <span>Info Data</span> <i class="icon-submenu lnr lnr-chevron-left" style="float:right"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav" >
 									<li ><a href="{{(url('sw'))}}" class="{{Request::is('sw')? 'active' : ''}}">SW</a></li>
@@ -122,7 +122,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
+				<p class="copyright">Dashboard Jasa Raharja Jambi
 </p>
 			</div>
 		</footer>

@@ -77,7 +77,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data User</h5>
       </div>
       <form action="/user/update" method="post">
       <div class="modal-body">
@@ -131,8 +131,13 @@
                              <label for="password" class="col-md-4 col-form-label text-md-right">Level User</label>
                             <div class="col-md-6">
                                 <select name="rule" id="rule_update">
+                                    @if($item->rule == 0)
                                         <option value="0"> Super admin</option>
                                         <option value="1">  Admin</option>
+                                    @else
+
+                                    @endif
+
                                 </select>
                             </div>
                         </div>       
@@ -152,7 +157,7 @@
     <div class="modal-content">
       <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
       </div>
       <form action="" method="post" id="form-tambah">
       @csrf

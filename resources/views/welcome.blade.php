@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
 	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
 	<!-- MAIN CSS -->
@@ -44,10 +44,10 @@
             }
 
             .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                /* align-items: center; */
+                /* display: flex;
+                justify-content: center;*/
+            } 
 
             .position-ref {
                 position: relative;
@@ -60,7 +60,7 @@
             }
 
             .content {
-                text-align: center;
+                /* text-align: center; */
             }
 
             .title {
@@ -90,13 +90,16 @@
 	
 </head>
 
+<body>
 <div id="wrapper">
             <!-- NAVBAR -->
             <nav class="navbar navbar-default navbar-fixed-top">
-                        <div class="brand" style='padding:15px'>
-                    <a href="index.html"><img src="assets/img/jr.png" alt="Klorofil Logo" class="img-responsive logo" ></a>
-                </div>
+                    <div class="brand" style='padding:15px'>
+                        <a href="index.html"><img src="assets/img/jr.png" alt="Klorofil Logo" class="img-responsive logo" ></a>
+                    </div>
                 <div class="container-fluid">
+                <center style=" padding-top:15px; font-size:30px">Dashboard Monitoring Jasa Raharja Cabang Jambi</center>
+
                     <div class="navbar-btn">
                         <!-- <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button> -->
                     </div>
@@ -117,193 +120,175 @@
                     <!-- </div> -->
                 </div>
             </nav>
-		<!-- MAIN -->
-		<!-- <div class="main"> -->
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<!-- <div class="container-fluid"> -->
-					<!-- OVERVIEW -->
-					<!-- <div class="panel panel-headline"> -->
+		 
 						
-						<div class="panel-body">
-							<main class="py-4">
-                            <div class="container">
-                                    <!-- <div class="row justify-content-center"> -->
-                                        <!-- <div class="col-md-20"> -->
-                                            <!-- <div class="card"> -->
-                                                <div class="card-header">
-                                                    <h3>Dashboard Monitoring Laporan Hasil Usaha Jasa Raharja</h3>
-                                                </div>
-                                                <hr>
-                                                <div class="card-body">
-                                                    @if (session('status'))
-                                                        <div class="alert alert-success" role="alert">
-                                                            {{ session('status') }}
-                                                        </div>
-                                                    @endif
-                                                    <div class="container">
-                                                    <!-- {{ __('You are logged in!') }} -->
-                                                    <div class="body">
-                                                        <div class="row">
-                                                            <div class="col-md-3" style="margin-rigth:50px">
-                                                            <div class="metric" style="background-color: #40bf40; padding:30px 20px 40px 10px">
-                                                                <span class="icon"><i class="fa fa-download"></i></span>
-                                                                                    <p>
-                                                                <span class="number" style="font-size:16px; font-weight:bold; color:white;" id='sw'>0 </span>
-                                                                <span class="title" style="font-size:13px; font-weight:bold; color:white;">SW S/D Bulan Ini</span>
-                                                                                        
-                                                                </p>
-                                                                <p style="font-size:11px" ><a href="" style="font-size:11px; color:white;" >Show</a></p>
-                                                                                    
-                                                            </div>
-                                                            </div>
-                                                            <div class="col-md-3" >
-                                                            <div class="metric" style="background-color: #4d88ff; padding:30px 20px 40px 20px">
-                                                                <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+						
+                                            <div class="card">
+                                                
+                                                <div class="card-body" style="padding-top:150px; padding-left:20px;">
+                                                    <!-- <div class="container"> -->
+                                                            <!-- <div class="body" > -->
                                                                 
-                                                                <p>
-                                                                <span class="number" style="font-size:16px; font-weight:bold; color:white;" id='iw'>0</span>
-                                                                <span class="title" style="font-size:13px; font-weight:bold; color:white;">IW S/D Bulan Ini</span>
-                                                                                                        </p>
-                                                                                    
-                                                                <p ><a href="" style="font-size:11px; color:white;">Show</a></p>
-                                                            </div>
-                                                            </div>
-                                            
-                                                            <div class="col-md-3" >
-                                                            <div class="metric" style="background-color: #ff9900; padding:30px 20px 40px 20px; margin-right:10px">
-                                                                <span class="icon"><i class="fa fa-bar-chart"></i></span>
-                                                                
-                                                                <p>
-                                                                <span class="number" style="font-size:16px; font-weight:bold; color:white;" id='klaim'>0</span>
-                                                                <span class="title" style="font-size:13px; font-weight:bold; color:white;">Jumlah S/D Bulan Ini</span>
-                                                                                    
-                                                                </p>
+                                                                    <div class="row">
+                                                                        <div class="col-md-3">
+                                                                            <div class="metric" style="background-color: #40bf40; padding:30px 20px 60px 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ">
                                                                                 
-                                                                <p style="font-size:11px"><a href="" style="font-size:11px; color:white;">Show</a></p>
-                                                            </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                            <div class="metric" style="background-color: #cc0000; padding:30px 20px 40px 10px; margin-right:40px; margin-left:-15px">
-                                                                <span class="icon"><i class="fa fa-money"></i></span>
-                                                                <p>
-                                                                <span class="number" style="font-size:16px; font-weight:bold; color:white;" id='keuangan'>0</span>
-                                                                <span class="title" style="font-size:13px; font-weight:bold; color:white;">Total Biaya S/D Bulan Ini</span>
-                                                                                    
-                                                                </p>
-                                                                                    
-                                                                <p style="font-size:11px"><a href="" style="font-size:11px; color:white;">Show</a></p>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <select name="tahun" id="tahun" class="form-control" onchange='load_data()'>
-                                                                @for($th=date('Y'); $th >= date('Y')-5; $th--)
-                                                                <option value="{{$th}}">{{$th}} </option>
-                                                                @endfor
-                                                                </select>
-                                                                <hr>
-                                                                <div class="row">
-                                                                    <div class="col-md-5" heigth="10px">
-                                                                    <div id="container"></div>
-                                                                    </div>
-                                                                    
-                                                                    <div class="col-md-3" heigth="4px">
-                                                                    <div id="korban" style="padding: all 10px;"></div>
-                                                                    </div>
-
-                                                                
-                                                            
-                                                                        <div class="col-md-4 ">
-                                                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                                                            <!-- Indicators -->
-                                                                            <ol class="carousel-indicators">
-                                                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                                                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                                                                <li data-target="#myCarousel" data-slide-to="2"></li>		
-                                                                            </ol>
-                                                                        
-                                                                            <!-- deklarasi carousel -->
-                                                                            <div class="carousel-inner" role="listbox">
-                                                                                <div class="item active">
-                                                                                <img src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
-                                                                                </div>
-                                                                                <div class="item">
-                                                                                <img src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
-                                                                                </div>
-                                                                                <!-- <div class="item">
-                                                                                <img src="img/malasngoding3.png" alt="www.malasngoding.com">
-                                                                                <div class="carousel-caption">
-                                                                                    <h3>Tutorial Android</h3>
-                                                                                    <p>Tutorial membuat aplikasi android.</p>
-                                                                                </div>
-                                                                                </div>-->
+                                                                                <span class="icon" style="padding-top:20px; width:80px; height: 80px;">
+                                                                                    <i class="fa fa-download" style="font-size: 40px;"></i></span>
+                                                                                <p>
+                                                                                    <span class="number" style=" color:white;" >SW</span>
+                                                                                <span class="number" style=" font-weight:bold; color:white;" id='sw'>Rp.0 </span>
+                                                                                <span class="title" style=" font-weight:bold; color:white;">SW S/D Bulan Ini</span>
+                                                                                                        
+                                                                                </p>
+                                                                                <p style="font-size:15px; padding-top:20px" ><a href="#" style=" color:white;" class="btn-show">Show</a></p>
+                                                                            
+                                                                                                    
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="col-md-3" >
+                                                                        <div class="metric" style="background-color: #4d88ff; padding:30px 20px 60px 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                                                                            <span class="icon" style="padding-top:20px; width:80px; height: 80px;">
+                                                                            <i class="fa fa-shopping-bag" style="font-size: 40px;"></i></span>
+                                                                            
+                                                                            <p>
+                                                                            <span class="number" style=" color:white;" >IW</span>
+                                                                            <span class="number" style=" font-weight:bold; color:white;" id='iw'>0</span>
+                                                                            <span class="title" style=" font-weight:bold; color:white;">IW S/D Bulan Ini</span>
+                                                                            </p>
+                                                                                                
+                                                                            <p style="font-size:15px; padding-top:20px"><a href="#" style="font-size:15px; color:white; " class="btn-show-iw">Show</a></p>
+                                                                        </div>
+                                                                        </div>
+                                                        
+                                                                        <div class="col-md-3" >
+                                                                        <div class="metric" style="background-color: #ff9900; padding:30px 20px 60px 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                                                                            <span class="icon" style="padding-top:20px; width:80px; height: 80px;">
+                                                                            <i class="fa fa-bar-chart" style="font-size: 40px;"></i></span>
+                                                                            
+                                                                            <p>
+                                                                            <span class="number" style=" color:white;" > KLAIM</span>
+                                                                            <span class="number" style=" font-weight:bold; color:white;" id='klaim'>0</span>
+                                                                            <span class="title" style=" font-weight:bold; color:white;">Jumlah S/D Bulan Ini</span>
+                                                                                                
+                                                                            </p>
+                                                                                            
+                                                                            <p style="font-size:15px; padding-top:20px"><a href="#" style=" color:white;" class="btn-show-klaim">Show</a></p>
+                                                                        </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                        <div class="metric" style="background-color: #cc0000; padding:30px 20px 60px 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                                                                            <span class="icon" style="padding-top:20px; width:80px; height: 80px;">
+                                                                            <i class="fa fa-money" style="font-size: 40px;"></i></span>
+                                                                            <p>
+                                                                            <span class="number" style=" color:white;" >KEUANGAN</span>
+                                                                            <span class="number" style=" font-weight:bold; color:white;" id='keuangan'>0</span>
+                                                                            <span class="title" style=" font-weight:bold; color:white;">Total Biaya S/D Bulan Ini</span>
+                                                                                                
+                                                                            </p>
+                                                                                                
+                                                                            <p style="font-size:15px; padding-top:20px"><a href="#" style=" color:white;" class="btn-show-keuangan">Show</a></p>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                            <!-- </div> -->
+                                                            <!-- <div class="card"> -->
+                                                                <!-- <div class="card-body"> -->
+                                                                    <select name="tahun" id="tahun" class="form-control" onchange='load_data()'>
+                                                                    @for($th=date('Y'); $th >= date('Y')-5; $th--)
+                                                                    <option value="{{$th}}">{{$th}} </option>
+                                                                    @endfor
+                                                                    </select>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-9">
+                                                                        <div id="container"></div>
+                                                                        </div>
                                                                         
-                                                                            <!-- membuat panah next dan previous -->
-                                                                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                                                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                                                <span class="sr-only">Previous</span>
-                                                                            </a>
-                                                                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                                                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                                                <span class="sr-only">Next</span>
-                                                                            </a>
+                                                                        <div class="col-md-2" >
+                                                                        <div id="korban" style="padding: all 10px;"></div>
                                                                         </div>
                                                                         <hr>
-                                                                        <div class="col-md-15">
+                                                                    </row>
+                                                                    
+                                                                        <div class="col-md-3" >
                                                                             <div class="response"></div>
                                                                             <div id='calendar' ></div>  
                                                                         </div>
+                                                                
+                                                                            <div class="col-md-5 ">
+                                                                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                                                <!-- Indicators -->
+                                                                                <ol class="carousel-indicators">
+                                                                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                                                    <li data-target="#myCarousel" data-slide-to="2"></li>		
+                                                                                </ol>
+                                                                            
+                                                                                <!-- deklarasi carousel -->
+                                                                                <div class="carousel-inner" role="listbox">
+                                                                                    <div class="item active">
+                                                                                    <img style="width: 960px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                                                                    </div>
+                                                                                    <div class="item">
+                                                                                    <img style="width: 960px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                                                                    </div>
+                                                                                    <div class="item">
+                                                                                    <img style="width: 960px; height: 350px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                                                                    </div>
+                                                                                </div>
+                                                                            
+                                                                                <!-- membuat panah next dan previous -->
+                                                                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                                                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                                                                    <span class="sr-only">Previous</span>
+                                                                                </a>
+                                                                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                                                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                                                                    <span class="sr-only">Next</span>
+                                                                                </a>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <div class="col-md-15">
+                                                                                <div class="response"></div>
+                                                                                <div id='calendar' ></div>  
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                                <!-- </div> -->
+                                                            <!-- </div> -->
 
-                                                        <div class="row">
-                                                            <div class="col-md-10">
-                                                                <div class="response"></div>
-                                                                <div id='calendar' ></div>  
-                                                            </div>
-                                                        </div>
+                                                            
+                                                    
 
 
                                                 </div>
-                                            <!-- </div> -->
-                                        <!-- </div> -->
-                                    <!-- </div> -->
-                                </div>
-							</main>
-						</div>
-					<!-- </div> -->
-					<!-- END OVERVIEW -->
-                
-				<!-- </div> -->
-			</div>
-			<!-- END MAIN CONTENT -->
-		<!-- </div> -->
-		<!-- END MAIN -->
-	<!-- END WRAPPER -->
-	<!-- Javascript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
+                                            </div>
+					
+			<!-- </div> -->
 
+<!-- modal-show  -->
+<div class="modal fade modal-show" id="modal-show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title" id="exampleModalLabel">Detail Data</h5>
+      </div>
+     
+      <div class="modal-body">
 
-	
-	
-</body>
-
-<body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Simpan Data</button>
+      </div> -->
     </div>
+  </div>
+</div>
+	
+	
+
     
         
 	<!-- Javascript -->
@@ -319,6 +304,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 <script>
 	load_data();
 	function load_data(){
@@ -354,19 +340,19 @@
         var chart =new Highcharts.chart('container', {
           chart: {
             type: 'line',
-            options3d: {
-              enabled: false,
-              alpha: 6,
-              beta: 15,
-              depth: 50,
-              viewDistance: 0
-            }
+            // options3d: {
+            //   enabled: false,
+            //   alpha: 6,
+            //   beta: 15,
+            //   depth: 50,
+            //   viewDistance: 0
+            // }
           },
           title: {
-            text: 'Peminat Prodi '
+            text: 'Grafik Keuangan '
           },
           subtitle: {
-            text: 'Data dihitung bersumber dari database Sistem Penerimaan Mahasiswa Baru'
+            text: 'Jasa Raharja'
           },
           xAxis: {
             categories:  result.data_grafik.label_bulan,
@@ -375,9 +361,9 @@
           },
           yAxis: {
             min: 0,
-            allowDecimals:false,
+            // allowDecimals:false,
             title: {
-              text: 'Jumlah Peminat'
+              text: 'Jumlah S/D Bulan Ini'
             }
           },
           tooltip: {
@@ -556,7 +542,71 @@ if (deleteMsg) {
 // setInterval(function() { $(".success").fadeOut(); }, 1000);
 // }
 </script>
+
+<script>
+    $('.btn-show').on('click',function(){
+            $.ajax({
+                url:`/show/sw/welcome`,
+                method: "GET",
+                success: function(data){
+                    // console.log(data)
+                    $('#modal-show').find('.modal-body').html(data)
+                    $('#modal-show').modal('show')
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        })
+    
+        $('.btn-show-iw').on('click',function(){
+            $.ajax({
+                url:`/show/iw/welcome`,
+                method: "GET",
+                success: function(data){
+                    // console.log(data)
+                    $('#modal-show').find('.modal-body').html(data)
+                    $('#modal-show').modal('show')
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        })
+
+        $('.btn-show-klaim').on('click',function(){
+            $.ajax({
+                url:`/show/klaim/welcome`,
+                method: "GET",
+                success: function(data){
+                    // console.log(data)
+                    $('#modal-show').find('.modal-body').html(data)
+                    $('#modal-show').modal('show')
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        })
+
+        $('.btn-show-keuangan').on('click',function(){
+            $.ajax({
+                url:`/show/uang/welcome`,
+                method: "GET",
+                success: function(data){
+                    // console.log(data)
+                    $('#modal-show').find('.modal-body').html(data)
+                    $('#modal-show').modal('show')
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        })
+</script>
 	
 </body>
 
 </html>
+
+

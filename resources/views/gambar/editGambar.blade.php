@@ -1,7 +1,7 @@
 <input type="hidden" value="{{$gambar->id_gambar}}" id="id_data">
     <div class="form-group">
             <label for="keterangan">Keterangan</label>
-            <select name="keterangan" id="" class="form-control">
+            <select name="keterangan" id="keterangan" class="form-control">
                 @if($gambar->keterangan == 'jasa raharja')
                     <option value="jasa raharja">Jasa Raharja</option>
                     <option value="event">Event</option>
@@ -19,11 +19,12 @@
         </div>
         <div class="form-group">
             <label for="image">Input Gambar</label>
-            <input type="file" class="form-control" name="image" id="image">
-            <input type="hidden" id='hidden_image' name="hidden_image" value='{{$gambar->image}}'>
+            <input type="file" class="form-control" name="image" id="image" accept='image/*'>
+            <!-- <input type="hidden" id='hidden_image' name="hidden_image" > -->
         </div>
 
         <div class="form-group">
             <img src="{{ asset('uploads/gambar/' . $gambar->image) }}" width="100px" heigth="100px" alt="image">
         </div>
     </div>
+    <!-- ini form edit ny bg -->

@@ -55,11 +55,15 @@ class HomeController extends Controller
                 // dd($data);
                 
         }
-        $dataKorban=[];
-        $dataLuka=[];
-        $jumlah_mgl=[];
-                $korban_mg=Korban::where('kasus','meninggal')->sum('jumlah');
-                $korban_lk=Korban::where('kasus','luka-luka')->sum('jumlah');
+        // $dataKorban=[];
+        // $dataLuka=[];
+        // $jumlah_mgl=[];
+                $tahun_korban=date('Y');
+                
+                $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
+                $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+
+                
                 
         $gambar = Gambar::where('keterangan','event')->first('image');
         $gambar2 = Gambar::where('keterangan','jasa raharja')->first('image');
