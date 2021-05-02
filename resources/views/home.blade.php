@@ -194,6 +194,17 @@
 		});
 
 		function grafik(result) {
+      Highcharts.setOptions({
+        chart: {
+            style: {
+                fontFamily: 'Roboto Condensed'
+            }
+        },
+        lang: {
+            thousandsSep: ',',
+            numericSymbols: [" k" , " M" , " B" , " T" , "P" , "E"]
+        }
+      });
         var chart =new Highcharts.chart('container', {
           chart: {
             type: 'line',

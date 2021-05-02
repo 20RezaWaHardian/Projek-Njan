@@ -9,9 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
-	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+	<!-- <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css"> -->
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -337,6 +337,17 @@
 		});
 
 		function grafik(result) {
+            Highcharts.setOptions({
+        chart: {
+            style: {
+                fontFamily: 'Roboto Condensed'
+            }
+        },
+        lang: {
+            thousandsSep: ',',
+            numericSymbols: [" k" , " M" , " B" , " T" , "P" , "E"]
+        }
+        });
         var chart =new Highcharts.chart('container', {
           chart: {
             type: 'line',
@@ -361,6 +372,7 @@
           },
           yAxis: {
             min: 0,
+            
             // allowDecimals:false,
             title: {
               text: 'Jumlah S/D Bulan Ini'
