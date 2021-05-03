@@ -209,14 +209,16 @@
                                                                         <div id="korban" style="padding: all 10px;"></div>
                                                                         </div>
                                                                         <hr>
-                                                                    </row>
-                                                                    
+                                                                    </div>
+
+                                                                    <hr>
+                                                                    <div >
                                                                         <div class="col-md-3" >
                                                                             <div class="response"></div>
                                                                             <div id='calendar' ></div>  
                                                                         </div>
                                                                 
-                                                                            <div class="col-md-5 ">
+                                                                            <div class="col-md-8 ">
                                                                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                                                                 <!-- Indicators -->
                                                                                 <ol class="carousel-indicators">
@@ -228,13 +230,13 @@
                                                                                 <!-- deklarasi carousel -->
                                                                                 <div class="carousel-inner" role="listbox">
                                                                                     <div class="item active">
-                                                                                    <img style="width: 960px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                                                                    <img style="width: 1500px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
                                                                                     </div>
                                                                                     <div class="item">
-                                                                                    <img style="width: 960px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                                                                    <img style="width: 1500px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
                                                                                     </div>
                                                                                     <div class="item">
-                                                                                    <img style="width: 960px; height: 350px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                                                                    <img style="width: 1500px; height: 350px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
                                                                                     </div>
                                                                                 </div>
                                                                             
