@@ -99,6 +99,7 @@
                                           </ol>
                                     
                                           <!-- deklarasi carousel -->
+                                          @if($gambar != null)
                                           <div class="carousel-inner" role="listbox">
                                             <div class="item active">
                                               <img style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
@@ -110,7 +111,14 @@
                                               <img style="width: 100%; height: 200px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
                                             </div>
                                           </div>
-                                    
+                                          @else
+                                          <div class="carousel-inner" role="listbox">
+                                            <div class="item active">
+                                              Tidak Ada Gambar
+                                            </div>
+                                            
+                                          </div>
+                                          @endif
                                           <!-- membuat panah next dan previous -->
                                           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

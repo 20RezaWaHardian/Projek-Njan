@@ -228,6 +228,7 @@
                                                                                 </ol>
                                                                             
                                                                                 <!-- deklarasi carousel -->
+                                                                                @if($gambar != null)
                                                                                 <div class="carousel-inner" role="listbox">
                                                                                     <div class="item active">
                                                                                     <img style="width: 1500px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
@@ -239,6 +240,14 @@
                                                                                     <img style="width: 1500px; height: 350px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
                                                                                     </div>
                                                                                 </div>
+                                                                                @else
+                                                                                <div class="carousel-inner" role="listbox">
+                                                                                    <div class="item active">
+                                                                                    Tidak Ada Gambar
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                                @endif
                                                                             
                                                                                 <!-- membuat panah next dan previous -->
                                                                                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
