@@ -17,6 +17,7 @@ class WelcomeController extends Controller
         if($r->ajax()){
                 
             $hasil=parent::get_data($r);
+
             
             return response()->json($hasil);
             // dd($data);
@@ -25,17 +26,25 @@ class WelcomeController extends Controller
     // $dataKorban=[];
     // $dataLuka=[];
     // $jumlah_mgl=[];
-    $tahun_korban=date('Y');
-                
-    $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
-    $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+    // $tahun_korban=date('Y');
+    // $years = [];
+    // $year=  $r->tahun;
+    //     $years['korban_mg']=Korban::where('created_at','like',$year.'%')->where('kasus','meninggal')->sum('jumlah');
+    //     $years['korban_lk']=Korban::where('created_at','like',$year.'%')->where('kasus','luka-luka')->sum('jumlah');
 
+    // return $years['korban_mg'];
+    // dd($korban_mg, $korban_lk);
+    // dd($korban_lk);           
+   
+    // $year=  $r->tahun;
+    //    $korban_mg=Korban::where('created_at','like',$year.'%')->where('kasus','meninggal')->sum('jumlah');
+    //     $korban_lk=Korban::where('created_at','like',$year.'%')->where('kasus','luka-luka')->sum('jumlah');
             
     $gambar = Gambar::where('keterangan','event')->first('image');
     $gambar2 = Gambar::where('keterangan','jasa raharja')->first('image');
     $gambar3 = Gambar::where('keterangan','peta')->first('image');
 
-    return view('welcome',compact('korban_mg','korban_lk','gambar','gambar2','gambar3'));
+    return view('welcome',compact('gambar','gambar2','gambar3'));
     // return view('welcome');
     }
 

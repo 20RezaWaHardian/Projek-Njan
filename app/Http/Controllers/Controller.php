@@ -64,11 +64,19 @@ class Controller extends BaseController
                         $iw=IW::where('created_at','like',$bln."%")->sum('sdBulan_Ini');
                         $klaim=Klaim::where('created_at','like',$bln."%")->sum('jp_sdbln');
                         $keuangan=Keuangan::where('created_at','like',$bln."%")->sum('total_biaya_sdbln');
+                        
+                        
                         $data['data_grafik']['data_sw'][]=(float) $sw;
                         $data['data_grafik']['data_iw'][]=(float)  $iw;
                         $data['data_grafik']['data_klaim'][]=(float)  $klaim;
                         $data['data_grafik']['data_keuangan'][]=(float)  $keuangan;
+                        // $data['data_grafik']['data_korban_mg'][]=(float) $korban_mg;
+                        // $data['data_grafik']['data_korban_lk'][]=(float) $korban_lk;
                     }
+                    $korban_mg=Korban::where('created_at','like',$tahun."%")->where('kasus','meninggal')->sum('jumlah');
+                    $korban_lk=Korban::where('created_at','like',$tahun."%")->where('kasus','luka-luka')->sum('jumlah');
+                    $data['data_korban_mg']=(float) $korban_mg;
+                    $data['data_korban_lk']=(float) $korban_lk;
          return $data;
     }
 }

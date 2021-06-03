@@ -1,7 +1,7 @@
 @extends('layouts.template-admin')
 
 @section('content')
-<div class="container">
+<!-- <div class="container"> -->
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,7 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="container">
+                    <div class="container" style="width:150%">
                     <!-- {{ __('You are logged in!') }} -->
                       <div class="body">
                           <div class="row">
@@ -133,11 +133,12 @@
                                   </div>
                               </div>
                         </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
 <!-- modal-show  -->
 <div class="modal fade modal-show" id="modal-show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -194,12 +195,58 @@
 			$("#klaim").html(result.klaim);
 			$("#keuangan").html(result.keuangan);
 			grafik(result);
+      korban(result);
 			
 
 		
 
 			}
 		});
+
+    function korban(result){
+            var chart =new Highcharts.chart('korban', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Grafik Korban'
+                },
+                // tooltip: {
+                //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                // },
+                // accessibility: {
+                //     point: {
+                //         valueSuffix: '%'
+                //     }
+                // },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: false,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                        name: 'Korban',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Meninggal',
+                            y: result.data_korban_mg,
+                        },{
+                            name: 'Luka - Luka',
+                            y: result.data_korban_lk
+                        }]
+                    }]
+                
+            });
+
+        }
 
 		function grafik(result) {
       Highcharts.setOptions({
@@ -211,7 +258,8 @@
         lang: {
             thousandsSep: ',',
             numericSymbols: [" k" , " M" , " B" , " T" , "P" , "E"]
-        }
+        },
+        colors: ['#8bbc21','#2f7ed8','#FFA500', '#FF0000',  ]
       });
         var chart =new Highcharts.chart('container', {
           chart: {
@@ -288,7 +336,7 @@
 	}
 </script>
 
-<script>
+<!-- <script>
 Highcharts.chart('korban', {
     chart: {
         plotBackgroundColor: null,
@@ -331,7 +379,7 @@ Highcharts.chart('korban', {
         }]
     }]
 });
-</script>
+</script> -->
 
 <script>
         $('.btn-show').on('click',function(){

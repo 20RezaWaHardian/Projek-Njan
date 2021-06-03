@@ -332,33 +332,77 @@
 			success:function(result)
 			{
 			//data atas
-			
-
-			// console.log(result);
-			$("#iw").html(result.iw);
+            // console.log(result.data_grafik.data_korban_mg);
+            $("#iw").html(result.iw);
 			$("#sw").html(result.sw);
 			$("#klaim").html(result.klaim);
 			$("#keuangan").html(result.keuangan);
+            korban(result);
+            
+
 			grafik(result);
-			
-
-		
-
+           
 			}
 		});
 
+        function korban(result){
+            var chart =new Highcharts.chart('korban', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Grafik Korban'
+                },
+                // tooltip: {
+                //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                // },
+                // accessibility: {
+                //     point: {
+                //         valueSuffix: '%'
+                //     }
+                // },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: false,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                        name: 'Korban',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Meninggal',
+                            y: result.data_korban_mg,
+                        },{
+                            name: 'Luka - Luka',
+                            y: result.data_korban_lk
+                        }]
+                    }]
+                
+            });
+
+        }
+
 		function grafik(result) {
             Highcharts.setOptions({
-        chart: {
-            style: {
-                fontFamily: 'Roboto Condensed'
-            }
-        },
-        lang: {
-            thousandsSep: ',',
-            numericSymbols: [" k" , " M" , " B" , " T" , "P" , "E"]
-        }
-        });
+                chart: {
+                    style: {
+                        fontFamily: 'Roboto Condensed'
+                    }
+                },
+                lang: {
+                    thousandsSep: ',',
+                    numericSymbols: [" k" , " M" , " B" , " T" , "P" , "E"]
+                },
+                colors: ['#8bbc21','#2f7ed8','#FFA500', '#FF0000',  ]
+            });
         var chart =new Highcharts.chart('container', {
           chart: {
             type: 'line',
@@ -404,8 +448,10 @@
             }
           },
           series: [{
+              
             name: 'SW',
-            data: result.data_grafik.data_sw
+            data: result.data_grafik.data_sw,
+            
 
           },
 		  {
@@ -422,62 +468,15 @@
             name: 'Keuangan',
             data: result.data_grafik.data_keuangan
 
-          },
-
-
-         
-          
-          ]
+          }]
         });
 
-		
       }
-	}
-</script>
+        
+     
+}
 
-<script>
-Highcharts.chart('korban', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Grafik Korban'
-    },
-    tooltip: {
-        // pointFormat: '{series.name}: <b>{point:.1f}</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: false
-            },
-            showInLegend: true
-        }
-    },
-    series: [{
-        name: 'Jumlah',
-        colorByPoint: true,
-        data: [{
-            name: 'Meninggal',
-            y: {!!$korban_mg!!},
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Luka - Luka',
-            y: {!!$korban_lk!!}
-        }]
-    }]
-});
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
@@ -506,7 +505,7 @@ event.allDay = false;
 selectable: true,
 selectHelper: true,
 select: function (start, end, allDay) {
-var title = prompt('Event Title:');
+// var title = prompt('Event Title:');
 if (title) {
 var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
 var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
