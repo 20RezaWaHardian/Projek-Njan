@@ -228,26 +228,41 @@
                                                                                 </ol>
                                                                             
                                                                                 <!-- deklarasi carousel -->
-                                                                                @if($gambar != null)
+                                                                                @if($gambar != null )
                                                                                 <div class="carousel-inner" role="listbox">
-                                                                                    <div class="item active">
-                                                                                    <img style="width: 1500px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
-                                                                                    </div>
-                                                                                    <div class="item">
-                                                                                    <img style="width: 1500px; height: 350px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
-                                                                                    </div>
-                                                                                    <div class="item">
-                                                                                    <img style="width: 1500px; height: 350px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
-                                                                                    </div>
-                                                                                </div>
-                                                                                @else
-                                                                                <div class="carousel-inner" role="listbox">
-                                                                                    <div class="item active">
-                                                                                    Tidak Ada Gambar
-                                                                                    </div>
+                                                                                        <div class="item active">
+                                                                                        <img style="width: 1500px; height: 400px; " src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                                                                        </div>
+                                                                                    @else
+                                                                                        <div class="carousel-inner" role="listbox">
+                                                                                        <div class="item active">
+                                                                                        Tidak Ada Gambar
+                                                                                        </div>
                                                                                     
+                                                                                    @endif
+                                                                                        @if($gambar2 != null)
+                                                                                        <div class="item">
+                                                                                        <img style="width: 1500px; height: 400px; " src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                                                                        </div>
+                                                                                        @else
+                                                                                        <div class="carousel-inner" role="listbox">
+                                                                                        <div class="item active">
+                                                                                        Tidak Ada Gambar
+                                                                                        </div>
+                                                                                    @endif
+                                                                                        @if($gambar3 != null)
+                                                                                        <div class="item">
+                                                                                        <img style="width: 1500px; height: 400px; " src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                                                                        </div>
+                                                                                        @else
+                                                                                        <div class="carousel-inner" role="listbox">
+                                                                                        <div class="item active">
+                                                                                        Tidak Ada Gambar
+                                                                                        </div>
+                                                                                    @endif
+                                                                                
                                                                                 </div>
-                                                                                @endif
+                                                                                
                                                                             
                                                                                 <!-- membuat panah next dan previous -->
                                                                                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -541,22 +556,22 @@ var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
 // }
 // });
 },
-eventClick: function (event) {
-var deleteMsg = confirm("Do you really want to delete?");
-if (deleteMsg) {
-// $.ajax({
-// type: "POST",
-// url: SITEURL + '/fullcalendar/delete',
-// data: "&id=" + event.id,
-// success: function (response) {
-// if(parseInt(response) > 0) {
-// $('#calendar').fullCalendar('removeEvents', event.id);
-// displayMessage("Deleted Successfully");
+// eventClick: function (event) {
+// var deleteMsg = confirm("Do you really want to delete?");
+// if (deleteMsg) {
+// // $.ajax({
+// // type: "POST",
+// // url: SITEURL + '/fullcalendar/delete',
+// // data: "&id=" + event.id,
+// // success: function (response) {
+// // if(parseInt(response) > 0) {
+// // $('#calendar').fullCalendar('removeEvents', event.id);
+// // displayMessage("Deleted Successfully");
+// // }
+// // }
+// // });
 // }
 // }
-// });
-}
-}
 });
 });
 // function displayMessage(message) {

@@ -39,6 +39,14 @@
                 <td>{{number_format($klaim->rasio34/100,2,'.','')}} %</td>
                 <td>{{$klaim->created_at->format('d F Y')}}</td>
                 </tr>
+                </tr>
+                <th> Meninggal </th>
+                <td>{{$korban_mg}}</td>
+                <td>{{$klaim->created_at->format('d F Y')}}</td>
+                </tr>
+                <th>Luka - Luka</th>
+                <td>{{$korban_lk}}</td>
+                <td>{{$klaim->created_at->format('d F Y')}}</td>
 
             </tbody>
         </table>

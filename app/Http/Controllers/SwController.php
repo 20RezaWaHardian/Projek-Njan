@@ -76,19 +76,20 @@ class SwController extends Controller
     public function klaimShow()
     {
         $klaim = Klaim::where('status','baru')->first();
-        return view('klaim.showKlaim', compact('klaim'));
+        $tahun_korban=date('Y');
+                
+                $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
+                $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
+
+        return view('klaim.showKlaim', compact('klaim','korban_mg','korban_lk'));
     }
     
     public function uangShow()
     {
 
         $uang = Keuangan::where('status','baru')->first();
-        $tahun_korban=date('Y');
-                
-                $korban_mg=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','meninggal')->sum('jumlah');
-                $korban_lk=Korban::where('created_at','like',$tahun_korban.'%')->where('kasus','luka-luka')->sum('jumlah');
-
-        return view('keuangan.showUang', compact('uang','korban_mg','korban_lk'));
+        
+        return view('keuangan.showUang', compact('uang'));
     }
 
     public function tambahKorban(Request $request)

@@ -101,24 +101,38 @@
                                           <!-- deklarasi carousel -->
                                           @if($gambar != null)
                                           <div class="carousel-inner" role="listbox">
-                                            <div class="item active">
-                                              <img style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
-                                            </div>
-                                            <div class="item">
-                                              <img style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
-                                            </div>
-                                            <div class="item">
-                                              <img style="width: 100%; height: 200px;" src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
-                                            </div>
-                                          </div>
-                                          @else
-                                          <div class="carousel-inner" role="listbox">
-                                            <div class="item active">
-                                              Tidak Ada Gambar
-                                            </div>
+                                                <div class="item active">
+                                                <img style="width: 1500px; height: 250px; " src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                                </div>
+                                            @else
+                                                <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                                                Tidak Ada Gambar Event
+                                                </div>
                                             
-                                          </div>
-                                          @endif
+                                            @endif
+                                                @if($gambar2 != null)
+                                                <div class="item">
+                                                <img style="width: 1500px; height: 250px; " src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                                </div>
+                                                @else
+                                                <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                                                Tidak Ada Gambar Jasa Raharja
+                                                </div>
+                                            @endif
+                                                @if($gambar3 != null)
+                                                <div class="item">
+                                                <img style="width: 1500px; height: 250px; " src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                                </div>
+                                                @else
+                                                <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                                                Tidak Ada Gambar Peta
+                                                </div>
+                                            @endif
+                                        
+                                        </div>
                                           <!-- membuat panah next dan previous -->
                                           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
