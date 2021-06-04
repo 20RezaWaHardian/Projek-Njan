@@ -26,7 +26,8 @@
                 <tr>
                     <th>No</th>
                     <th>Kasus</th>
-                    <th>Julah Korban</th>
+                    <th>Jumlah Korban</th>
+                    <th>Tanggal</th>
                     <th>action</th>
                     
                 </tr>
@@ -37,6 +38,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->kasus}}</td>
                     <td>{{$item->jumlah}}</td>
+                    <td>{{$item->created_at->format('d F Y')}}</td>
+
                     
                     <td>
                         <a href="#" data-id="{{ $item->id }}" class="btn btn-warning btn-edit"><i class="lnr lnr-pencil"></i></a>

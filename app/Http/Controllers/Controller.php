@@ -60,15 +60,19 @@ class Controller extends BaseController
                     }
                     $data['data_grafik']['data_sw']=[];
                     foreach($data['data_grafik']['label_bulan'] as $bln)  {
+                        
                         $sw=SW::where('created_at','like',$bln."%")->sum('sdBulan_Ini');
                         $iw=IW::where('created_at','like',$bln."%")->sum('sdBulan_Ini');
                         $klaim=Klaim::where('created_at','like',$bln."%")->sum('jp_sdbln');
                         $keuangan=Keuangan::where('created_at','like',$bln."%")->sum('total_biaya_sdbln');
                         
-                        
+                        if($sw != null)
                         $data['data_grafik']['data_sw'][]=(float) $sw;
+                        if($iw != null)
                         $data['data_grafik']['data_iw'][]=(float)  $iw;
+                        if($klaim != null)
                         $data['data_grafik']['data_klaim'][]=(float)  $klaim;
+                        if($keuangan != null)
                         $data['data_grafik']['data_keuangan'][]=(float)  $keuangan;
                         // $data['data_grafik']['data_korban_mg'][]=(float) $korban_mg;
                         // $data['data_grafik']['data_korban_lk'][]=(float) $korban_lk;

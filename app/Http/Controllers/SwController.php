@@ -126,9 +126,9 @@ class SwController extends Controller
                 //     '%'=>$proses[0],[11],[5],
                 //     'realisasi'=>$proses[0],[11],[6],
                 // ]);
-        // $data_sw = SW::where('status','baru')->update(['status'=>'lama']);
+        // 
         // // dd($data_sw);
-
+        $data_sw = SW::where('status','baru')->update(['status'=>'lama']);
         $sw = new SW;
         $sw->bulan_Ini = $proses[0][11][2];
         $sw->sdBulan_Ini = $proses[0][11][3];

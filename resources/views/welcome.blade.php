@@ -456,12 +456,12 @@
             shared: true,
             useHTML: true
           },
-          plotOptions: {
-            column: {
-              pointPadding: 0.2,
-              borderWidth: 0
-            }
-          },
+        //   plotOptions: {
+        //     column: {
+        //       pointPadding: 0.2,
+        //       borderWidth: 0
+        //     }
+        //   },
           series: [{
               
             name: 'SW',
