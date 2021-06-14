@@ -202,7 +202,7 @@
                                                                         <div id="container"></div>
                                                                         </div>
                                                                         
-                                                                        <div class="col-md-2" >
+                                                                        <div class="col-md-3" >
                                                                         <div id="korban" style="padding: all 10px;"></div>
                                                                         </div>
                                                                         <hr>
@@ -210,7 +210,7 @@
 
                                                                     <hr>
                                                                     <div >
-                                                                        <div class="col-md-3" >
+                                                                        <div class="col-md-4" >
                                                                             <div class="response"></div>
                                                                             <div id='calendar' ></div>  
                                                                         </div>
@@ -228,7 +228,7 @@
                                                                                 @if($gambar != null )
                                                                                 <div class="carousel-inner" role="listbox">
                                                                                         <div class="item active">
-                                                                                        <img style="width: 1500px; height: 320px; " src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
+                                                                                        <img style="width: 1500px; height: 490px; " src="{{ asset('uploads/gambar/' . $gambar->image) }}" alt="">
                                                                                         </div>
                                                                                     @else
                                                                                         <div class="carousel-inner" role="listbox">
@@ -239,7 +239,7 @@
                                                                                     @endif
                                                                                         @if($gambar2 != null)
                                                                                         <div class="item">
-                                                                                        <img style="width: 1500px; height: 320px; " src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
+                                                                                        <img style="width: 1500px; height: 490px; " src="{{ asset('uploads/gambar/' . $gambar2->image) }}" alt="">
                                                                                         </div>
                                                                                         @else
                                                                                         <div class="carousel-inner" role="listbox">
@@ -249,7 +249,7 @@
                                                                                     @endif
                                                                                         @if($gambar3 != null)
                                                                                         <div class="item">
-                                                                                        <img style="width: 1500px; height: 320px; " src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
+                                                                                        <img style="width: 1500px; height: 490px; " src="{{ asset('uploads/gambar/' . $gambar3->image) }}" alt="">
                                                                                         </div>
                                                                                         @else
                                                                                         <div class="carousel-inner" role="listbox">
