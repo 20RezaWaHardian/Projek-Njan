@@ -81,7 +81,7 @@
                 margin-bottom: 30px;
             }
         </style>
-	@yield('header')
+	<!-- @yield('header') -->
 	
 
 	
@@ -91,18 +91,15 @@
 </head>
 
 <body>
-<div id="wrapper">
+
             <!-- NAVBAR -->
             <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="brand" style='padding:15px'>
+                    <div class="brand" style='padding:5px'>
                         <a href="index.html"><img src="assets/img/jr.png" alt="Klorofil Logo" class="img-responsive logo" ></a>
                     </div>
                 <div class="container-fluid">
-                <center style=" padding-top:15px; font-size:30px">Dashboard Monitoring Jasa Raharja Cabang Jambi</center>
+                <center style=" padding-top:17px; font-size:30px">Dashboard Monitoring Jasa Raharja Cabang Jambi</center>
 
-                    <div class="navbar-btn">
-                        <!-- <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button> -->
-                    </div>
                     <!-- <div class="flex-center position-ref full-height"> -->
                             @if (Route::has('login'))
                                 <div class="top-right links">
@@ -125,7 +122,7 @@
 						
                                             <div class="card">
                                                 
-                                                <div class="card-body" style="padding-top:150px; padding-left:20px;">
+                                                <div class="card-body" style="padding-top:100px; padding-right:20px; padding-left:20px;">
                                                     <!-- <div class="container"> -->
                                                             <!-- <div class="body" > -->
                                                                 
@@ -291,7 +288,7 @@
                                                 </div>
                                             </div>
 					
-			<!-- </div> -->
+		
 
 <!-- modal-show  -->
 <div class="modal fade modal-show" id="modal-show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
