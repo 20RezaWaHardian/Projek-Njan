@@ -54,7 +54,7 @@ url: SITEURL + "/fullcalendar/create",
 data: 'title=' + title + '&start=' + start + '&end=' + end,
 type: "POST",
 success: function (data) {
-displayMessage("Added Successfully");
+alert("Event Berhasil Ditambah");
 }
 });
 calendar.fullCalendar('renderEvent',
@@ -77,7 +77,7 @@ url: SITEURL + '/fullcalendar/update',
 data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id,
 type: "POST",
 success: function (response) {
-displayMessage("Updated Successfully");
+alert("Event Berhasil Diubah");
 }
 });
 },
@@ -91,7 +91,7 @@ data: "&id=" + event.id,
 success: function (response) {
 if(parseInt(response) > 0) {
 $('#calendar').fullCalendar('removeEvents', event.id);
-displayMessage("Deleted Successfully");
+alert("Event Berhasil Dihapus");
 }
 }
 });

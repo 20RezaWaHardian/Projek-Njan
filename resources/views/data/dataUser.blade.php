@@ -86,7 +86,7 @@
 
                         <input type="hidden" name="id" id="id" value="">
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">ID Pegawai</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
 
                             <div class="col-md-6">
                                 <input id="username_update" type="text" class="form-control @error('username') is-invalid @enderror" name="username"  required autocomplete="username" autofocus>
@@ -131,20 +131,15 @@
                              <label for="password" class="col-md-4 col-form-label text-md-right">Level User</label>
                             <div class="col-md-6">
                                 <select name="rule" id="rule_update">
-                                    @if($item->rule == 0)
-                                        <option value="0"> Super admin</option>
-                                        <option value="1">  Admin</option>
-                                    @else
-
-                                    @endif
-
+                                        <option value="0">Super admin</option>
+                                        <option value="1">Admin</option>
                                 </select>
                             </div>
                         </div>       
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Ubah Data</button>
       </div>
       </form>
     </div>
@@ -171,7 +166,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-data">Save changes</button>
+        <button type="button" class="btn btn-primary btn-data">Simpan</button>
       </div>
       </form>
     </div>
@@ -203,7 +198,8 @@
                 // $('#modal-tambah').find('.modal-body').html(data)
                 $('#modal-tambah').modal('hide')
                 window.location.assign('/user')
-                alert("Data berhasil disimpan")
+
+                // alert("Data berhasil disimpan")
             }
         })
     })

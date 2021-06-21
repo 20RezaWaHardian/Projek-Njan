@@ -36,10 +36,10 @@
                 @foreach($uang as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>Rp.{{$item->total_biaya_sdbln}}</td>
-                    <td>Rp.{{$item->total_biaya_bln}}</td>
-                    <td>Rp.{{$item->total_laba_sdbln}}</td>
-                    <td>Rp.{{$item->total_laba_bln}}</td>
+                    <td>Rp.{{number_format($item->total_biaya_sdbln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->total_biaya_bln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->total_laba_sdbln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->total_laba_bln,0,"",".")}}</td>
                     <td>{{$item->created_at->format('d F Y')}}
                     <td>
                         <a href="#" data-id="{{$item->id_keuangan}}" class="btn btn-warning btn-edit"><i class="lnr lnr-pencil"></i></a>
@@ -117,5 +117,27 @@
                 }
             })
         })
+
+        function hanyaAngka(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && !(charCode == 46 || charCode == 8))
+                // return false;
+                alert("Hanya Menerima Inputan Angka")
+            else {
+                var len = $(element).val().length;
+                var index = $(element).val().indexOf('.');
+                if (index > 0 && charCode == 46) {
+                return false;
+                }
+                if (index > 0) {
+                var CharAfterdot = (len + 1) - index;
+                if (CharAfterdot > 3) {
+                    return false;
+                }
+                }
+
+            }
+            return true;
+		}
     </script>
 @stop

@@ -40,12 +40,12 @@
                 @foreach($klaim as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>Rp.{{$item->jp33_sdbln}}</td>
-                    <td>Rp.{{$item->jp34_sdbln}}</td>
-                    <td>Rp.{{$item->jp33_bln}}</td>
-                    <td>Rp.{{$item->jp34_bln}}</td>
-                    <td>Rp.{{$item->jp_sdbln}}</td>
-                    <td>Rp.{{$item->jp_bln}}</td>
+                    <td>Rp.{{number_format($item->jp33_sdbln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->jp34_sdbln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->jp33_bln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->jp34_bln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->jp_sdbln,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->jp_bln,0,"",".")}}</td>
                     <td>{{number_format($item->rasio33/100,2,'.','')}} %</td>
                     <td>{{number_format($item->rasio34/100,2,'.','')}} %</td>
                     <td>{{$item->created_at->format('d F Y')}}
@@ -123,5 +123,27 @@
                 }
             })
         })
+
+        function hanyaAngka(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && !(charCode == 46 || charCode == 8))
+                // return false;
+                alert("Hanya Menerima Inputan Angka")
+            else {
+                var len = $(element).val().length;
+                var index = $(element).val().indexOf('.');
+                if (index > 0 && charCode == 46) {
+                return false;
+                }
+                if (index > 0) {
+                var CharAfterdot = (len + 1) - index;
+                if (CharAfterdot > 3) {
+                    return false;
+                }
+                }
+
+            }
+            return true;
+		}
     </script>
 @stop

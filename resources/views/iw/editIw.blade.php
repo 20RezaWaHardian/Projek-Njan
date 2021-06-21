@@ -3,7 +3,7 @@
         <label for="bulanIni" class="col-md-4 col-form-label text-md-right">Bulan Ini</label>
 
         <div class="col-md-6">
-            <input type="text" id="bulanIni" name="bulan_Ini"  class="form-control" value="{{$iw->bulan_Ini}}">
+            <input type="text" id="bulanIni" name="bulan_Ini"  class="form-control" value="{{$iw->bulan_Ini}}" required onkeypress="return hanyaAngka(event)">
 
             @error('bulanIni')
                 <span class="invalid-feedback" role="alert">
@@ -17,7 +17,7 @@
         <label for="sdBulanIni" class="col-md-4 col-form-label text-md-right">s/d Bulan Ini</label>
 
         <div class="col-md-6">
-            <input id="sdBulanIni" type="text" class="form-control @error('sdBulanIni') is-invalid @enderror" name="sdBulan_Ini"  required autocomplete="sdBulanIni" value="{{$iw->sdBulan_Ini}}">
+            <input id="sdBulanIni" type="text" class="form-control @error('sdBulanIni') is-invalid @enderror" name="sdBulan_Ini"  required autocomplete="sdBulanIni" value="{{$iw->sdBulan_Ini}}" required onkeypress="return hanyaAngka(event)">
 
             @error('sdBulanIni')
                 <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
         <label for="anggaran" class="col-md-4 col-form-label text-md-right">Anggaran</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" name="anggaran" id="anggaran" required value="{{$iw->anggaran}}">
+            <input type="text" class="form-control" name="anggaran" id="anggaran" required value="{{$iw->anggaran}}" required onkeypress="return hanyaAngka(event)">
 
             @error('anggaran')
                 <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
         <label for="persentase" class="col-md-4 col-form-label text-md-right">Persentase</label>
 
         <div class="col-md-6">
-            <input id="persentase" type="text" class="form-control @error('persentase') is-invalid @enderror" name="persentasi"  required autocomplete="persentase" value="{{$iw->persentasi}}">
+            <input id="persentase" type="text" class="form-control @error('persentase') is-invalid @enderror" name="persentasi"  required autocomplete="persentase" value="{{$iw->persentasi}}" required onkeypress="return hanyaAngka(event)">
 
             @error('persentase')
                 <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
         <label for="realisasi" class="col-md-4 col-form-label text-md-right">Realisasi</label>
 
         <div class="col-md-6">
-            <input id="realisasi" type="text" class="form-control @error('realisasi') is-invalid @enderror" name="realisasi"  required autocomplete="realisasi" value="{{$iw->realisasi}}">
+            <input id="realisasi" type="text" class="form-control @error('realisasi') is-invalid @enderror" name="realisasi"  required autocomplete="realisasi" value="{{$iw->realisasi}}" required onkeypress="return hanyaAngka(event)">
 
             @error('realisasi')
                 <span class="invalid-feedback" role="alert">

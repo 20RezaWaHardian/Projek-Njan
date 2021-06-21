@@ -32,6 +32,17 @@ class UserController extends Controller
             'password' => bcrypt($r->password),
             'rule'=>$r->rule,
         ]);
+        if($r->ajax()){
+            \Session::flash('success','Data Berhasil Disimpan');
+            $response = array(
+                'status' => 'success',
+                'url' => action('UserController@index'),
+                );
+            return $response;
+        }else{
+            \Session::flash('success','Data Berhasil Disimpan');
+            return redirect()->action('UserController@index');
+        }
     }
 
     public function update(Request $request)

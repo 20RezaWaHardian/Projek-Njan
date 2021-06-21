@@ -13,7 +13,12 @@
         </div>
         <div class="form-group">
             <label for="image">Input Gambar</label>
-            <input type="file" class="form-control" name="image" id="image">
+            @error('image')
+            <span class="invalid-feedback" role="alert">
+                <div class="alert alert-danger">{{ $message }}</div>
+            </span>
+            @enderror
+            <input type="file" class="form-control" name="image" id="image" required="required">
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -2,17 +2,17 @@
             <tbody>
                 <tr>
                 <th scope="row">S/D Bulan Ini</th>
-                <td>{{$sw->sdBulan_Ini}}</td>
+                <td>Rp.{{number_format($sw->sdBulan_Ini,0,"",".")}}</td>
                 <td>{{$sw->created_at->format('d F Y')}}</td>
                 </tr>
                 <tr>
-                <th >Bulan Ini</th>
-                <td>{{$sw->bulan_Ini}}</td>
+                <th>Bulan Ini</th>
+                <td>Rp.{{number_format($sw->bulan_Ini,0,"",".")}}</td>
                 <td>{{$sw->created_at->format('d F Y')}}</td>
                 </tr>
                 <tr>
                 <th>Anggaran</th>
-                <td>{{$sw->anggaran}}</td>
+                <td>Rp.{{number_format($sw->anggaran,0,"",".")}}</td>
                 <td>{{$sw->created_at->format('d F Y')}}</td>
                 </tr>
                 <tr>

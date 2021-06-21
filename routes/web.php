@@ -69,6 +69,8 @@ Route::get('/fullcalendar','FullCalendarController@index');
 Route::post('fullcalendar/create','FullCalendarController@create');
 Route::post('fullcalendar/update','FullCalendarController@update');
 Route::post('fullcalendar/delete','FullCalendarController@destroy');
+// Route::get('fullcalender', [FullCalendarController::class, 'index']);
+// Route::post('fullcalenderAjax', [FullCalendarController::class, 'ajax']);
 
 //gambar
 Route::get('/gambar','GambarController@index');

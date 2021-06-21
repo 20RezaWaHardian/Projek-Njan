@@ -12,6 +12,7 @@ use App\Imports\SwImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Validator;
 
 
 class SwController extends Controller
@@ -94,6 +95,7 @@ class SwController extends Controller
 
     public function tambahKorban(Request $request)
     {
+        
         Korban::insert([
             'kasus' =>$request->kasus,
             'jumlah' =>$request->jumlah,
@@ -105,11 +107,11 @@ class SwController extends Controller
     {
         // validasi
 		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
+			'file' => 'required|image:csv,xls,xlsx'
         ],
         [
             'file.required' => 'Document Harus Di Isi',
-            'file.mimes' => 'Format Document Harus Excel',
+            'file.image' => 'Format Document Harus Excel',
         ]);
 
         $file= $request->file('file');
@@ -210,6 +212,11 @@ class SwController extends Controller
 
     public function swUpdate(Request $request, $id)
     {
+        $validation = $request->validate([
+            'bulan_Ini'=> 'required|numeric',
+        ]);
+        
+
         $data = SW::where('status','baru')->update(['status'=>'lama']);
         SW::where('sw_id',$id)->update([
             'bulan_Ini'=>$request->bulan_Ini,
@@ -219,6 +226,19 @@ class SwController extends Controller
             'realisasi'=>$request->realisasi,
             'status'=>$request->status,
         ]);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Diubah');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@index'),
+                );
+            return $response;
+        }else{
+            \Session::flash('error','Data Berhasil Diubah');
+            return redirect()->action('SwController@index');
+        }
+        
+        
     }
 
     public function iwUpdate(Request $request, $id)
@@ -232,6 +252,17 @@ class SwController extends Controller
             'realisasi'=>$request->realisasi,
             'status' => $request->status,
         ]);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Diubah');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@iwIndex'),
+                );
+            return $response;
+        }else{
+            \Session::flash('success','Data Berhasil Diubah');
+            return redirect()->action('SwController@iwIndex');
+        }
     }
 
     public function klaimUpdate(Request $request, $id)
@@ -248,6 +279,17 @@ class SwController extends Controller
             'rasio34' => $request->rasio34,
             'status' => $request->status,
         ]);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Diubah');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@klaimIndex'),
+                );
+            return $response;
+        }else{
+            \Session::flash('success','Data Berhasil Diubah');
+            return redirect()->action('SwController@klaimIndex');
+        }
     }
 
     public function uangUpdate(Request $request, $id)
@@ -260,7 +302,17 @@ class SwController extends Controller
             'total_laba_bln'=>$request->total_laba_bln,
             'status' => $request->status,
         ]);
-        // return view('keuangan.editUang')->with(['succes' => 'Data Berhasil di Edit']);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Diubah');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@uangIndex'),
+                );
+            return $response;
+        }else{
+            \Session::flash('success','Data Berhasil Diubah');
+            return redirect()->action('SwController@uangIndex');
+        }
     }
 
     public function korbanUpdate(Request $request, $id)
@@ -270,7 +322,17 @@ class SwController extends Controller
             'kasus'=>$request->kasus,
             'jumlah'=>$request->jumlah,
         ]);
-        // return view('keuangan.editUang')->with(['succes' => 'Data Berhasil di Edit']);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Diubah');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@korbanIndex'),
+                );
+            return $response;
+        }else{
+            \Session::flash('success','Data Berhasil Diubah');
+            return redirect()->action('SwController@korbanIndex');
+        }
     }
 
     public function hapusSw($id)

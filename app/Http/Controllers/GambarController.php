@@ -25,6 +25,13 @@ class GambarController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'image' => 'required|mimes:jpg,png,jpeg'
+        ],
+        [
+            'image.required' => 'Document Harus Di Isi',
+            'image.mimes' => 'Format Document Harus JPG, JPEG atau PNG',
+        ]);
         $gambar = new Gambar();
 
         $gambar->keterangan = $request->input('keterangan');

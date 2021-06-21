@@ -42,9 +42,9 @@
                 @foreach($iw as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$item->bulan_Ini}}</td>
-                    <td>{{$item->sdBulan_Ini}}</td>
-                    <td>{{$item->anggaran}}</td>
+                    <td>Rp.{{number_format($item->bulan_Ini,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->sdBulan_Ini,0,"",".")}}</td>
+                    <td>Rp.{{number_format($item->anggaran,0,"",".")}}</td>
                     <td>{{number_format($item->persentasi/100,2,'.','')}} %</td>
                     <td>{{number_format($item->realisasi/100,2,'.','')}} %</td>
                     <td>{{$item->created_at->format('d M Y')}}</td>
@@ -131,6 +131,28 @@
                 }
             })
         })
+
+        function hanyaAngka(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && !(charCode == 46 || charCode == 8))
+                // return false;
+                alert("Hanya Menerima Inputan Angka")
+            else {
+                var len = $(element).val().length;
+                var index = $(element).val().indexOf('.');
+                if (index > 0 && charCode == 46) {
+                return false;
+                }
+                if (index > 0) {
+                var CharAfterdot = (len + 1) - index;
+                if (CharAfterdot > 3) {
+                    return false;
+                }
+                }
+
+            }
+            return true;
+		}
     </script>
     <!-- <script>
         function validation()

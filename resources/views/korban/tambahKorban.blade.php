@@ -13,8 +13,8 @@
                             <label for="luka_luka" class="col-md-4 col-form-label text-md-right">Jumlah</label>
 
                             <div class="col-md-6">
-                                <input id="luka_luka_update" type="text" class="form-control @error('luka_luka') is-invalid @enderror" name="jumlah"  required autocomplete="luka_luka">
-
+                                <input id="luka_luka_update" type="text" class="form-control @error('luka_luka') is-invalid @enderror" name="jumlah"  required autocomplete="luka_luka" placeholder ="Ex. '10' " onkeypress="return hanyaAngka(event)">
+                                <p style="font-size:10px; color:red">** Hanya Inputan Angka</p>
                                 @error('luka_luka')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
