@@ -107,11 +107,11 @@ class SwController extends Controller
     {
         // validasi
 		$this->validate($request, [
-			'file' => 'required|image:csv,xls,xlsx'
+			'file' => 'required|mimes:csv,xls,xlsx'
         ],
         [
             'file.required' => 'Document Harus Di Isi',
-            'file.image' => 'Format Document Harus Excel',
+            'file.mimes' => 'Format Document Harus Excel',
         ]);
 
         $file= $request->file('file');
@@ -119,7 +119,13 @@ class SwController extends Controller
         
         $proses= Excel::toArray(new SwImport,$file);
 
-        // dd($proses[0][121][2]);
+        // $a = "Sub Total 1.1.";
+        // if($proses[0][10][1] == $a){
+        //     dd($proses[0][10][2]);
+        // }else{
+        //     dd("format Salah");
+        // }
+        
 
                 // $insert_data= SW::insert([
                 //     'bulan_Ini'=>$proses[0],[11],[2],
@@ -130,6 +136,10 @@ class SwController extends Controller
                 // ]);
         // 
         // // dd($data_sw);
+        
+        $a = "Sub Total 1.1.";
+        if($proses[0][10][0] == $a){
+
         $data_sw = SW::where('status','baru')->update(['status'=>'lama']);
         $sw = new SW;
         $sw->bulan_Ini = $proses[0][11][2];
@@ -171,6 +181,12 @@ class SwController extends Controller
         $uang -> total_laba_bln = $proses[0][121][2];
         $uang -> status = 'baru';
         $uang -> save();
+        }else{
+            // return "<script>alert('salah'), window.location.assign('/tambahData')</script>";
+            // \Session::flash('error','Data Berhasil Diubah');
+            return redirect('/tambahData')->with(['error' => 'Format File Salah']);
+            
+        }
 
         
 
