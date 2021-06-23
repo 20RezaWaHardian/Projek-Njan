@@ -26,12 +26,19 @@ class UserController extends Controller
     }
 
     public function dataTambah(Request $r){
-        User::insert([
-            'username' => $r->username,
-            // 'email' =>  $r->email,
-            'password' => bcrypt($r->password),
-            'rule'=>$r->rule,
-        ]);
+        $this->validate($r,[
+            'username' => 'required|unique:users,username'
+        ]
+    );
+        // $username = User::get();
+        // if($username->username != $r->username){
+            User::insert([
+                'username' => $r->username,
+                // 'email' =>  $r->email,
+                'password' => bcrypt($r->password),
+                'rule'=>$r->rule,
+            ]);
+            
         if($r->ajax()){
             \Session::flash('success','Data Berhasil Disimpan');
             $response = array(
@@ -40,23 +47,44 @@ class UserController extends Controller
                 );
             return $response;
         }else{
-            \Session::flash('success','Data Berhasil Disimpan');
-            return redirect()->action('UserController@index');
+            \Session::flash('error','Data Berhasil Disimpan');
+            $response = array(
+                'status' => 'error',
+                'url' => action('UserController@index'),
+                );
+            return $response;
+            // return redirect()->action('UserController@index');
         }
     }
 
     public function update(Request $request)
     {
+        $this-> validate($request,[
+            'username' => 'required|unique:users,username'
+        ], [
+            'username.unique' =>" Username Ini Telah Tersimpan"
+        ]
+    );
+       
+      
         $user = User::findOrFail($request->id);
-        $user->update([
+        // if($user->username != $request->username){
+        //     \Session::flash('success','Data Berhasil Disimpan');
+          $user->update([
             'username' => $request->username,
             // 'email' =>  $r->email,
             'password' => bcrypt($request->password),
-            'rule'=>$request->rule,
+            // 'rule'=>$request->rule,
         ]);
+        return redirect()->back()->with(['success' => 'Data Berhasil Update']);
+        // if($v == true){
+        // return redirect()->back()->with(['success' => 'Data Berhasil Update']);
+        // }else{
+        //     return redirect()->back()->with(['error' => 'Data Berhasil Update']);
+        // }
 
         // dd($user);
-        return redirect()->back()->with(['success' => 'Data Berhasil Update']);
+        
     }
 
     public function destroy($id){

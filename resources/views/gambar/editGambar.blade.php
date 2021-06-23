@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="image">Input Gambar</label>
-            <input type="file" class="form-control" name="image" id="image" accept='image/*'>
+            <input type="file" class="form-control" name="image" id="image" accept='image/*' required>
             <!-- <input type="hidden" id='hidden_image' name="hidden_image" > -->
         </div>
 

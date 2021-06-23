@@ -109,7 +109,7 @@
                     // $('#modal-edit').find('.modal-body').html(data)
                     $('#modal-edit').modal('hide')
                     window.location.assign('/keuangan')
-                    alert('Data Berhasil Diubah')
+                    // alert('Data Berhasil Diubah')
                     // with(['succes' => 'Data Berhasil di Edit'])
                 },
                 error:function(error){

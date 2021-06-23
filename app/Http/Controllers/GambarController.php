@@ -51,7 +51,7 @@ class GambarController extends Controller
         // $gambar->move('uploads/gambar/', $filename);
         $gambar->save();
         
-        return redirect('/kelolagambar'); 
+        return redirect('/kelolagambar')->with(['success' => 'Data Berhasil Ditambahkan']); 
     }
 
     public function edit($id)
@@ -62,6 +62,13 @@ class GambarController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request,[
+            'image' => 'required|mimes:jpg,png,jpeg'
+        ],
+        [
+            'image.required' => 'Document Harus Di Isi',
+            'image.mimes' => 'Format Document Harus JPG, JPEG atau PNG',
+        ]);
         $id = $request->id_gambar;
 
         $gambar=Gambar::find($id);
@@ -80,7 +87,7 @@ class GambarController extends Controller
             'image'=>$filename,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Data Berhasil Di Ubah']);
 
 
     }
@@ -90,6 +97,6 @@ class GambarController extends Controller
         $gambar=Gambar::find($id);
         $gambar->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with(['error' => 'Data Berhasil DiHapus']);
     }
 }

@@ -22,7 +22,7 @@
 
         <div class="col-md-6">
             <input id="luka_luka_update" type="text" class="form-control @error('luka_luka') is-invalid @enderror" 
-                name="jumlah"  required autocomplete="luka_luka" value={{$korban->jumlah}}>
+                name="jumlah"  required autocomplete="luka_luka" value="{{$korban->jumlah}}" onkeypress="return hanyaAngka(event)">
 
             @error('luka_luka')
                 <span class="invalid-feedback" role="alert">

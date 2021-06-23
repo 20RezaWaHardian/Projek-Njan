@@ -16,6 +16,16 @@
                         <strong>{{ $message }}</strong>
                     </div>
                 @endif
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
         <hr>
 
         <a href="#" class='btn btn-success btn-tambah'> <i class="fa fa-user-plus"></i>Tambah Data</a>
@@ -127,7 +137,7 @@
                             </div>
                         </div>
 
-                        <div class="form-grop row">
+                        <!-- <div class="form-grop row">
                              <label for="password" class="col-md-4 col-form-label text-md-right">Level User</label>
                             <div class="col-md-6">
                                 <select name="rule" id="rule_update">
@@ -135,7 +145,7 @@
                                         <option value="1">Admin</option>
                                 </select>
                             </div>
-                        </div>       
+                        </div>        -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -200,6 +210,10 @@
                 window.location.assign('/user')
 
                 // alert("Data berhasil disimpan")
+            },
+            error: function (request, status, error) {
+                alert('Username Sudah Terdaftar');
+                window.location.assign('/user')
             }
         })
     })

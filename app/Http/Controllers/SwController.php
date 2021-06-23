@@ -101,6 +101,17 @@ class SwController extends Controller
             'jumlah' =>$request->jumlah,
             'created_at'=>now(),
         ]);
+        if($request->ajax()){
+            \Session::flash('success','Data Berhasil Ditambahkan');
+            $response = array(
+                'status' => 'success',
+                'url' => action('SwController@korbanIndex'),
+                );
+            return $response;
+        }else{
+            \Session::flash('error','Data Berhasil Ditambahkan');
+            return redirect()->action('SwController@korbanIndex');
+        }
     }
 
     public function import_excel(Request $request)
@@ -118,9 +129,9 @@ class SwController extends Controller
         $fileName = $file->getClientOriginalName();
         
         $proses= Excel::toArray(new SwImport,$file);
-
+        // dd($proses[0][10][0]);
         // $a = "Sub Total 1.1.";
-        // if($proses[0][10][1] == $a){
+        // if($proses[0][10][1] == $a ){
         //     dd($proses[0][10][2]);
         // }else{
         //     dd("format Salah");
@@ -299,12 +310,12 @@ class SwController extends Controller
             \Session::flash('success','Data Berhasil Diubah');
             $response = array(
                 'status' => 'success',
-                'url' => action('SwController@klaimIndex'),
+                'url' => action('SWController@klaimIndex'),
                 );
             return $response;
         }else{
             \Session::flash('success','Data Berhasil Diubah');
-            return redirect()->action('SwController@klaimIndex');
+            return redirect()->action('SWController@klaimIndex');
         }
     }
 
@@ -322,12 +333,12 @@ class SwController extends Controller
             \Session::flash('success','Data Berhasil Diubah');
             $response = array(
                 'status' => 'success',
-                'url' => action('SwController@uangIndex'),
+                'url' => action('SWController@uangIndex'),
                 );
             return $response;
         }else{
             \Session::flash('success','Data Berhasil Diubah');
-            return redirect()->action('SwController@uangIndex');
+            return redirect()->action('SWController@uangIndex');
         }
     }
 

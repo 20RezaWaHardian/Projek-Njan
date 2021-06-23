@@ -2,12 +2,25 @@
 @extends('layouts.template-admin')
 
 @section('content')
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
 
     <div class="panel-header">
         <h3>Kelola Gambar</h3>
     </div>
     <hr>
     <div class="panel-body">
+    
         <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
@@ -39,7 +52,7 @@
     <div class="modal-content">
       <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h5 class="modal-title" id="exampleModalLabel">Edit SW</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Gambar</h5>
       </div>
       <form action="{{ route('updateGambar') }}" method="post" id="form-edit" enctype="multipart/form-data">
       @csrf
